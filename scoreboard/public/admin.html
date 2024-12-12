@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alien Admin</title>
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body>
+    <div>
+      <h1>Alien Admin</h1>
+      <p><a href="/c/menu">Main Menu</a></p>
+      <p><a href="/c/new?d=easy">New Game (Pistol Easy)</a></p>
+      <p><a href="/c/new?d=hard">New Game (Pistol Hard)</a></p>
+      <p><a href="/c/new?d=wand">New Game (Wand Mode)</a></p>
+      <p><a href="/c/end">End Game</a></p>
+      <hr />
+      <p><a href="/c/test">Test</a></p>
+      <p><a href="/c/death">Death</a></p>
+      <p><a href="/c/boss">Boss Appear</a></p>
+      <p><a href="/c/boss-death">Boss Death</a></p>
+    </div>
+    <div>
+      <pre id="state">Loading...</pre>
+    </div>
+
+    <style type="text/css">
+      body,
+      a,
+      input,
+      button {
+        background-color: #000;
+        color: #0f0;
+        font-size: 20px;
+        color: #0f0;
+        font-family: Menlo, monospace;
+      }
+      body {
+        margin: 1rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+      }
+      input,
+      button {
+        padding: 0.5rem;
+        border: 2px solid #0f0;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      hr {
+        border: 1px solid #0f0;
+      }
+    </style>
+
+    <script>
+      const $ = document.querySelector.bind(document)
+      const $$ = document.querySelectorAll.bind(document)
+
+      let ws = null
+      const connect = () => {
+        if (ws && ws.readyState === WebSocket.OPEN) return
+        ws = new WebSocket("ws://localhost:4000")
+        ws.onmessage = (event) => {
+          const data = JSON.parse(event.data)
+          const { nodes } = data
+          data.nodes = undefined
+          $("#state").innerText =
+            JSON.stringify(data, null, 2) +
+            "\n\n" +
+            Object.entries(nodes)
+              .map(([k, v]) => `${k}: ${v.version} ${v.state} ${v.millis}`)
+              .sort()
+              .join("\n")
+        }
+      }
+      setInterval(connect, 2000)
+      connect()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+public/sfx
+public/music
+scores.json
+stats.json
+
+.pnpm-debug.log*
+node_modules/

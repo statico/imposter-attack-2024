@@ -1,0 +1,6 @@
+esptool
+micropython-esp32-stubs
+micropython-stdlib-stubs
+mpremote
+watchdog
+pyserial
