@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impostor Attack</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body>
+    <div id="bg"></div>
+
+    <div id="test" class="screen">
+      <h1>Test Mode</h1>
+    </div>
+
+    <div id="idle" class="screen">
+      <h1>Impostor Attack</h1>
+      <h2 id="high-score"></h2>
+    </div>
+
+    <div id="ready" class="screen">
+      <h1>Get Ready</h1>
+    </div>
+
+    <div id="game" class="screen">
+      <div class="score">
+        <h2 class="upper">Score</h2>
+        <div class="lower">0</div>
+      </div>
+      <div class="time">
+        <h2 class="upper">Time Left</h2>
+        <div class="lower">0</div>
+      </div>
+    </div>
+
+    <div id="end" class="screen">
+      <h1>Game Over</h1>
+      <div class="score">
+        <h2 class="upper">Score</h2>
+        <div class="lower">0</div>
+      </div>
+    </div>
+
+    <div id="music"></div>
+
+    <script src="/js/howler.min.js"></script>
+    <script src="/scoreboard.js"></script>
+  </body>
+</html>
