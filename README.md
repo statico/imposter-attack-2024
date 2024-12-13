@@ -35,6 +35,15 @@ This is the scoreboard and game server. To run it:
 
 To add music, download the files into `scoreboard/public/music/game` or `scoreboard/public/music/menu` and add them to the `gameMusicFiles` or `menuMusicFiles` array in `scoreboard/public/scoreboard.js`.
 
+You'll need to add your own sound effects referenced in `scoreboard.js` since I don't have the license to distribute the ones I used. They're referenced like this:
+
+```js
+const startSound = new Howl({ src: ["/sfx/round-start.mp3"] });
+const endSound = new Howl({ src: ["/sfx/victory-crew.mp3"] });
+const bossAppearSound = new Howl({ src: ["/sfx/impostor-roar.mp3"] });
+const bossDeathSound = new Howl({ src: ["/sfx/boss-death.mp3"] });
+```
+
 ## target
 
 This is the code that runs on the ESP32 devices, which communicate with the relay, which communicates with the scoreboard. Get started [downloading the firmware](https://micropython.org/download/ESP32_GENERIC/) and modifying `01_flash.sh` with the path to the firmware. Then run `01_flash.sh` to flash the MicroPython firmware to the ESP32, then run `02_install.sh` to install the code and dependencies.
