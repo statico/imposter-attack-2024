@@ -1,6 +1,8 @@
 # Imposter Attack 2024
 
-![looping video of gameplay using a wand](./gameplay-wand.gif)
+|                  MagiQuest wand input                   |                   Laser tag toy gun input                   |
+| :-----------------------------------------------------: | :---------------------------------------------------------: |
+| ![Gameplay with a wand controller](./gameplay-wand.gif) | ![Gameplay with a pistol controller](./gameplay-pistol.gif) |
 
 This is the code behind Imposter Attack, an infrared shooting gallery game I made for Halloween 2024 that uses battery-powered ESP32 targets and a Node.js-based scoreboard server.
 
