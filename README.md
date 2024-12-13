@@ -80,8 +80,8 @@ You'll also want to update `target/uota.cfg` with your IP address or where you'r
 
 ```json
 {
-  "url": "http://192.168.0.123:4444",
-	...
+  "url": "http://192.168.0.123:4444"
+  // ...
 }
 ```
 
