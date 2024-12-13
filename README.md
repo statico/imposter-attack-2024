@@ -91,7 +91,7 @@ This is a simple bridge that receives messages from the ESP-NOW network and send
 
 You can use the `01_flash.sh` command to flash the MicroPython firmware to the ESP32. Then you can use the standard `mpremote` command to copy `main.py` to the board, or use my own `devtool.py` command if you want to make frequent changes.
 
-## Music Tracks
+## Recommended Music
 
 I used [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the music from YouTube and [sox](https://sox.sourceforge.net/) to convert the Opus files to MP3 (but you could also use [ffmpeg](https://ffmpeg.org/)). Put these in `scoreboard/public/music/game` or `scoreboard/public/music/menu` and add them to the `gameMusicFiles` or `menuMusicFiles` array in `scoreboard/public/scoreboard.js`.
 
