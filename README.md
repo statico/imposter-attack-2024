@@ -1,6 +1,8 @@
 # Imposter Attack 2024
 
-This is the code behind Imposter Attack, an infrared shooting gallery game I made for Halloween 2024.
+![looping video of gameplay using a wand](./gameplay-wand.gif)
+
+This is the code behind Imposter Attack, an infrared shooting gallery game I made for Halloween 2024 that uses battery-powered ESP32 targets and a Node.js-based scoreboard server.
 
 > [!NOTE]
 > I didn't plan on open-sourcing this originally, so it's quite a mess and has a bunch of stuff hardcoded. Feel free to send a pull request if you want to clean it up.
