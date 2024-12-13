@@ -136,3 +136,7 @@ I used [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the music from You
 ## License
 
 Unless otherwise specified, all code is MIT licensed.
+
+---
+
+![game in idle mode](./idle-loop.gif)
