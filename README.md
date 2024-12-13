@@ -30,7 +30,7 @@ Then run `devtool.py <directory>`, like `devtool.py target`.
 
 This is the scoreboard and game server. To run it:
 
-- Make sure an ESP32 device running the `relay` code is connected to your computer
+- Make sure an ESP32 device running the `bridge` code is connected to your computer
 - Install [pnpm](https://pnpm.io/installation)
 - Run `pnpm install`
 - Run `pnpm dev`
@@ -49,15 +49,15 @@ const bossDeathSound = new Howl({ src: ["/sfx/boss-death.mp3"] });
 
 ## target
 
-This is the code that runs on the ESP32 devices, which communicate with the relay, which communicates with the scoreboard. Get started [downloading the firmware](https://micropython.org/download/ESP32_GENERIC/) and modifying `01_flash.sh` with the path to the firmware. Then run `01_flash.sh` to flash the MicroPython firmware to the ESP32, then run `02_install.sh` to install the code and dependencies.
+This is the code that runs on the ESP32 devices, which communicate with the bridge, which communicates with the scoreboard. Get started [downloading the firmware](https://micropython.org/download/ESP32_GENERIC/) and modifying `01_flash.sh` with the path to the firmware. Then run `01_flash.sh` to flash the MicroPython firmware to the ESP32, then run `02_install.sh` to install the code and dependencies.
 
 When iterating quickly, it's easiest to keep the ESP32 plugged in use `devtool.py` to watch the `target` directory for changes and automatically copy files to the ESP32.
 
 In the field when devices aren't connected, I use [uOTA](https://github.com/mkomon/uota) to update the firmware over the wifi network. The devices don't connect to the wifi network until requested to update. This requires running a simple HTTP server (I run `npx http-server -p 4444` in the `webroot` directory) and then running `03_update.sh` to build a tarball and trigger the update. The devices will connect to the wifi network and update themselves.
 
-## relay
+## bridge
 
-This is a simple relay that receives messages from the ESP-NOW network and sends them to the serial port. It also receives messages from the serial port and sends them to the ESP-NOW network. This is how the targets communicate with scoreboard.
+This is a simple bridge that receives messages from the ESP-NOW network and sends them to the serial port. It also receives messages from the serial port and sends them to the ESP-NOW network. This is how the targets communicate with scoreboard. All devices speak JSON.
 
 You can use the `01_flash.sh` command to flash the MicroPython firmware to the ESP32. Then you can use the standard `mpremote` command to copy `main.py` to the board, or use my own `devtool.py` command if you want to make frequent changes.
 

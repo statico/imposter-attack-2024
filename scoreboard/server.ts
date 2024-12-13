@@ -57,7 +57,7 @@ if (devicePath) {
   parser = port.pipe(new ReadlineParser({ delimiter: "\n" }))
 
   parser.on("data", (data: string) => {
-    // The relay sends an object like {"host":"...", "message":"..."}
+    // The bridge sends an object like {"host":"...", "message":"..."}
     let host, message
     try {
       const obj = JSON.parse(data)

@@ -21,7 +21,7 @@ spoll.register(sys.stdin, uselect.POLLIN)
 buf = bytearray(1024)
 cursor = 0
 
-print("starting relay")
+print("starting bridge")
 while True:
     try:
         # Send messages from ESP-NOW to serial
