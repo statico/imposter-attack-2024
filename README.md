@@ -40,6 +40,18 @@ This is the scoreboard and game server. To run it:
 
 To add music, download the files into `scoreboard/public/music/game` or `scoreboard/public/music/menu` and add them to the `gameMusicFiles` or `menuMusicFiles` array in `scoreboard/public/scoreboard.js`.
 
+```js
+const gameMusicFiles = [
+  "among-us-hide-and-seek.mp3",
+	...
+]
+
+const menuMusicFiles = [
+  "pigstep.mp3",
+	...
+]
+```
+
 You'll need to add your own sound effects referenced in `scoreboard.js` since I don't have the license to distribute the ones I used. They're referenced like this:
 
 ```js
@@ -56,6 +68,22 @@ This is the code that runs on the ESP32 devices, which communicate with the brid
 When iterating quickly, it's easiest to keep the ESP32 plugged in use `devtool.py` to watch the `target` directory for changes and automatically copy files to the ESP32.
 
 In the field when devices aren't connected, I use [uOTA](https://github.com/mkomon/uota) to update the firmware over the wifi network. The devices don't connect to the wifi network until requested to update. This requires running a simple HTTP server (I run `npx http-server -p 4444` in the `webroot` directory) and then running `03_update.sh` to build a tarball and trigger the update. The devices will connect to the wifi network and update themselves.
+
+Make sure to update the `target/main.py` file with the correct WiFi credentials:
+
+```python
+WIFI_SSID = "mywifi"
+WIFI_PASSWORD = "sekrit"
+```
+
+You'll also want to update `target/uota.cfg` with your IP address or where you're serving the `webroot` directory:
+
+```json
+{
+  "url": "http://192.168.0.123:4444",
+	...
+}
+```
 
 ## bridge
 
