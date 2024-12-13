@@ -52,7 +52,9 @@ const menuMusicFiles = [
 ]
 ```
 
-You'll need to add your own sound effects referenced in `scoreboard.js` since I don't have the license to distribute the ones I used. They're referenced like this:
+You'll need to add your own sound effects referenced in `scoreboard.js` since I don't have the license to distribute the ones I used. You can find sound effects on [Freesound](https://freesound.org/) or [OpenGameArt.org](https://opengameart.org/), or you can make some with [sfxr](https://sfxr.me/) if you like the retro sound.
+
+Change `scoreboard.js` like so:
 
 ```js
 const startSound = new Howl({ src: ["/sfx/round-start.mp3"] });
